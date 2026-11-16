@@ -306,7 +306,7 @@ export function IceCubeScene({ thaw, cracks, shattered, onStrike }: SceneProps) 
       <Canvas
         className="ice-canvas"
         dpr={[1, 1.6]}
-        camera={{ position: [0, 0.15, 5.5], fov: 40 }}
+        camera={{ position: [0, 0.12, 4.6], fov: 38 }}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
         <ambientLight intensity={0.5 + warmth * 0.3} />

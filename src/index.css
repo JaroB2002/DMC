@@ -93,7 +93,8 @@ a {
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  opacity: 0.85;
+  color: color-mix(in srgb, var(--snow) 92%, transparent);
+  opacity: 1;
 }
 
 /* ——— Hero ——— */
@@ -101,7 +102,7 @@ a {
   position: relative;
   min-height: 100svh;
   display: grid;
-  grid-template-rows: minmax(58vh, 1fr) auto;
+  grid-template-rows: minmax(64vh, 1fr) auto;
   align-items: stretch;
   isolation: isolate;
   overflow: hidden;
@@ -145,8 +146,8 @@ a {
   position: relative;
   z-index: 2;
   width: 100%;
-  min-height: 58vh;
-  height: clamp(360px, 62vh, 720px);
+  min-height: 64vh;
+  height: clamp(400px, 70vh, 820px);
   cursor: crosshair;
   touch-action: none;
 }
@@ -183,15 +184,17 @@ a {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0.4rem;
+  bottom: 0.55rem;
   z-index: 3;
   margin: 0;
   text-align: center;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  opacity: 0.55;
+  color: color-mix(in srgb, var(--frost) 90%, transparent);
+  opacity: 0.8;
   pointer-events: none;
+  animation: hint-pulse 2.6s ease-in-out infinite;
 }
 
 .cube-fallback {
@@ -257,27 +260,35 @@ a {
 
 .cta {
   appearance: none;
-  border: 1px solid color-mix(in srgb, var(--snow) 55%, transparent);
-  background: color-mix(in srgb, var(--snow) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--snow) 70%, transparent);
+  background: color-mix(in srgb, var(--snow) 14%, transparent);
   color: var(--snow);
-  padding: 0.85rem 1.45rem;
+  padding: 0.9rem 1.55rem;
   font-size: 0.78rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.25s var(--ease-out), border-color 0.25s var(--ease-out), transform 0.25s var(--ease-out);
   backdrop-filter: blur(8px);
+  animation: cta-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes cta-pulse {
+  0%, 100% { border-color: color-mix(in srgb, var(--snow) 55%, transparent); }
+  50% { border-color: color-mix(in srgb, var(--ice) 85%, transparent); }
 }
 
 .cta:hover {
-  background: color-mix(in srgb, var(--snow) 18%, transparent);
+  background: color-mix(in srgb, var(--snow) 22%, transparent);
   border-color: var(--snow);
   transform: translateY(-1px);
+  animation: none;
 }
 
 .cta-ghost {
   border-color: color-mix(in srgb, var(--gilt) 65%, transparent);
   color: var(--gilt);
+  animation: none;
 }
 
 .thaw-meter {
@@ -394,27 +405,27 @@ a {
 .stats {
   margin: 0;
   display: grid;
-  gap: 1.25rem;
+  gap: 1.6rem;
 }
 
 .stats > div {
   display: grid;
-  gap: 0.25rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid color-mix(in srgb, var(--frost) 18%, transparent);
+  gap: 0.35rem;
+  padding-top: 1rem;
+  border-top: 1px solid color-mix(in srgb, var(--frost) 22%, transparent);
 }
 
 .stats dt {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  opacity: 0.6;
+  color: color-mix(in srgb, var(--frost) 78%, transparent);
 }
 
 .stats dd {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(2rem, 4vw, 2.35rem);
   letter-spacing: 0.04em;
 }
 
@@ -433,7 +444,13 @@ a {
 @media (min-width: 720px) {
   .cycle-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 2rem 2.5rem;
+    gap: 2.25rem 2.75rem;
+  }
+}
+
+@media (max-width: 719px) {
+  .cycle-list {
+    gap: 2rem;
   }
 }
 
@@ -505,21 +522,26 @@ a {
 
 @media (max-width: 640px) {
   .hero {
-    grid-template-rows: minmax(48vh, 1fr) auto;
+    grid-template-rows: minmax(52vh, 1fr) auto;
   }
 
   .ice-cube-stage {
-    height: clamp(300px, 52vh, 520px);
-    min-height: 48vh;
+    height: clamp(320px, 56vh, 560px);
+    min-height: 52vh;
   }
 
   .brand {
     letter-spacing: 0.12em;
     text-indent: 0.12em;
+    font-size: clamp(3.6rem, 16vw, 5.2rem);
   }
 
   .hero-copy {
     margin-bottom: 2.4rem;
+  }
+
+  .section-copy {
+    font-size: 1.05rem;
   }
 }
 
